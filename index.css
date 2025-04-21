@@ -1,0 +1,35 @@
+@font-face {
+    font-family: junk;
+    src: url(data/JunkDog.ttf);
+}
+
+@font-face {
+    font-family: verd;
+    src: url(data/verdana.ttf);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    font-family: Verdana, Arial;
+    background-color: #15190D;
+}
+
+main {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#loading-indicator {
+    font-size: 14px;
+    color: #6DCA00;
+    font-weight: bold;
+}
