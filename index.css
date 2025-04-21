@@ -33,3 +33,17 @@ main {
     color: #6DCA00;
     font-weight: bold;
 }
+
+#framerate {
+    display: block;
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    background-color: black;
+    color: white;
+    font-weight: bold;
+    font-size: 0.8rem;
+    font-family: monospace;
+    border-radius: 2px;
+    padding: 2px;
+}

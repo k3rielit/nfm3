@@ -9407,7 +9407,7 @@ var gpress = [0, 0, 0, 0, 0, 0, 0, 0];
 var gparr = false;
 var needrotate = false;
 var totime = 0, nfr = 0, actat = 20, ltime = -1;
-var m = 0.7;
+var m = 0.9;
 var frgm = 0;
 var canw = 1280, canh = 720, tcanh = 720;
 var mw = 1, mh = 1;
@@ -9415,6 +9415,13 @@ var avm = 1;
 var adm = 0;
 var fase = 0;
 function gameloop() {
+
+    window.performance.before ??= new Date();
+    window.performance.after = new Date();
+    window.performance.delta = window.performance.after - window.performance.before;
+    window.performance.before = window.performance.after;
+    document.querySelector('#framerate').textContent = window.performance.delta > 0 ? 1000 / window.performance.delta : 0;
+    
     if (canw != window.innerWidth || tcanh != window.innerHeight) {
         canw = window.innerWidth;
         canh = window.innerHeight;
