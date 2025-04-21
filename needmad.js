@@ -9407,20 +9407,27 @@ var gpress = [0, 0, 0, 0, 0, 0, 0, 0];
 var gparr = false;
 var needrotate = false;
 var totime = 0, nfr = 0, actat = 20, ltime = -1;
-var m = 0.9;
+var m = 0.9; // Affects framerate. By default it's 0.7, but the physics are tied to the framerate, and 0.9 results in 21, thus fixing the physics.
 var frgm = 0;
 var canw = 1280, canh = 720, tcanh = 720;
 var mw = 1, mh = 1;
 var avm = 1;
 var adm = 0;
 var fase = 0;
-function gameloop() {
 
+function updateFramerate() {
     window.performance.before ??= new Date();
     window.performance.after = new Date();
-    window.performance.delta = window.performance.after - window.performance.before;
+    window.performance.frametime = window.performance.after - window.performance.before;
     window.performance.before = window.performance.after;
-    document.querySelector('#framerate').textContent = window.performance.delta > 0 ? 1000 / window.performance.delta : 0;
+    window.performance.framerate = Math.round(window.performance.frametime > 0 ? 1000 / window.performance.frametime : 0);
+}
+
+function gameloop() {
+
+    updateFramerate();
+    document.querySelector('.overlay > #framerate > .overlay-widget-value').textContent = window.performance.framerate;
+    document.querySelector('.overlay > #speed > .overlay-widget-value').textContent = Math.round(speed[0] ?? 0.0);
     
     if (canw != window.innerWidth || tcanh != window.innerHeight) {
         canw = window.innerWidth;

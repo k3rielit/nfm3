@@ -34,16 +34,27 @@ main {
     font-weight: bold;
 }
 
-#framerate {
-    display: block;
+.overlay {
     position: fixed;
-    top: 10px;
-    right: 10px;
-    background-color: black;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgba(20,20,20, 0.5);
     color: white;
-    font-weight: bold;
-    font-size: 0.8rem;
+    font-size: 1rem;
     font-family: monospace;
-    border-radius: 2px;
-    padding: 2px;
+    border-radius: 1rem;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-widget {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.overlay-widget-name {
+    font-weight: bold;
 }

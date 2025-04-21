@@ -23,7 +23,16 @@
       width="1280" height="720"></canvas>
   </main>
 
-  <div id="framerate"></div>
+  <div class="overlay">
+    <div class="overlay-widget" id="framerate">
+      <span class="overlay-widget-name">FPS</span>
+      <span class="overlay-widget-value">0</span>
+    </div>
+    <div class="overlay-widget" id="speed">
+      <span class="overlay-widget-name">Speed</span>
+      <span class="overlay-widget-value">0</span>
+    </div>
+  </div>
 
   <script>
     var canvas3D = document.querySelector('#canvas3D');
