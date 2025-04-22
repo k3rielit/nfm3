@@ -16,6 +16,19 @@ body {
     background-color: #15190D;
 }
 
+*::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+*::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 0 rgba(0,0,0,0);
+}
+ 
+*::-webkit-scrollbar-thumb {
+  background-color: slategray;
+  outline: none;
+}
+
 main {
     position: absolute;
     top: 0;
@@ -36,9 +49,10 @@ main {
 
 .overlay {
     position: fixed;
-    bottom: 1rem;
+    bottom: 2rem;
     right: 1rem;
     background-color: rgba(20,20,20, 0.5);
+    backdrop-filter: blur(5px);
     color: white;
     font-size: 1rem;
     font-family: monospace;
@@ -51,10 +65,27 @@ main {
 .overlay-widget {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: left;
     gap: 1rem;
 }
 
 .overlay-widget-name {
     font-weight: bold;
+}
+
+.overlay-widget-value {
+    text-align: left;
+}
+
+#renderer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(20,20,20, 0.5);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 0.75rem;
+    font-family: monospace;
+    border-radius: 0.5rem;
+    padding: 0.25rem;
 }

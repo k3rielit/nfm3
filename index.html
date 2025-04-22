@@ -7,8 +7,10 @@
   <meta name="mobile-web-app-capable" content="yes">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="trainer.css">
   <script src="gl-matrix-min.js"></script>
   <script src="needmad.js"></script>
+  <script src="trainer.js"></script>
 </head>
 
 <body onload="init()">
@@ -34,9 +36,59 @@
     </div>
   </div>
 
+  <div id="renderer"></div>
+
+  <div class="trainer hidden">
+    <div class="trainer-banner">
+      <span>MadnesMenu</span>
+    </div>
+    <span>Speed</span>
+    <div class="speedhack"></div>
+    <span>Power</span>
+    <div class="powerhack"></div>
+    <span>Damage</span>
+    <div class="damagehack"></div>
+  </div>
+
+  <template id="speedhack-item-template">
+    <div class="speedhack-item">
+      <span>Car</span>
+      <span class="speedhack-index">-</span>
+      <label>
+        <input type="number" class="speedhack-value"/>
+      </label>
+    </div>
+  </template>
+
+  <template id="powerhack-item-template">
+    <div class="powerhack-item">
+      <span>Car</span>
+      <span class="powerhack-index">-</span>
+      <label>
+        <input type="number" class="powerhack-value"/>
+      </label>
+    </div>
+  </template>
+
+  <template id="damagehack-item-template">
+    <div class="damagehack-item">
+      <span>Car</span>
+      <span class="damagehack-index">-</span>
+      <label>
+        <input type="number" class="damagehack-value"/>
+      </label>
+    </div>
+  </template>
+
   <script>
     var canvas3D = document.querySelector('#canvas3D');
     var gl = canvas3D.getContext('webgl') || canvas3D.getContext('experimental-webgl');
+    try {
+      const debugInfo = gl.getExtension('WEBGL_debug_renderer_info');
+      const renderer = gl.getParameter(debugInfo.UNMASKED_RENDERER_WEBGL);
+      document.querySelector('#renderer').textContent = renderer;
+    } catch (error) {
+    }
     var canvas2D = document.querySelector('#canvas2D');
     canvas2D.addEventListener("mousedown", msdown, false);
     canvas2D.addEventListener('mousemove', msmove, false);
@@ -117,7 +169,7 @@
     var pbr = 1;
 
     function Keydown(evt) {
-      evt.preventDefault();
+      //evt.preventDefault();
       var k = evt.keyCode;
       if (k == 38 || k == 87) {
         u[0].up = true;
@@ -153,7 +205,7 @@
     }
 
     function Keyup(evt) {
-      evt.preventDefault();
+      //evt.preventDefault();
       var k = evt.keyCode;
       if (k == 38 || k == 87) {
         u[0].up = false;

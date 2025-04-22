@@ -1,0 +1,52 @@
+.visible {
+    visibility: visible;
+}
+
+.hidden {
+    visibility: hidden;
+}
+
+.trainer {
+    position: fixed;
+    left: 1rem;
+    top: 25%;
+    max-height: 60%;
+    overflow-y: scroll;
+    background-color: rgba(20,20,20, 0.9);
+    backdrop-filter: blur(5px);
+    color: white;
+    font-size: 1rem;
+    font-family: monospace;
+    border-radius: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.trainer > .trainer-banner {
+    font-size: 1.5rem;
+    font-weight: bold;
+    font-family: sans-serif;
+    background: linear-gradient(90deg,rgba(253, 29, 29, 1) 23%, rgba(252, 176, 69, 1) 100%);
+    color: black;
+    display: flex;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+}
+
+.trainer > span {
+    text-align: center;
+    padding: 0.25rem;
+}
+
+.trainer > .speedhack, .trainer > .powerhack, .trainer > .damagehack {
+    display: flex;
+    flex-direction: column;
+}
+
+.trainer > .speedhack > .speedhack-item, .trainer > .powerhack > .powerhack-item, .trainer > .damagehack > .damagehack-item {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.1rem 1rem;
+}
